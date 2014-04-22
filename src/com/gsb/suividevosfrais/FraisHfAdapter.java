@@ -63,6 +63,7 @@ public class FraisHfAdapter extends BaseAdapter {
 		TextView txtListJour ;
 		TextView txtListMontant ;
 		TextView txtListMotif ;
+		Button cmdListSuppr ;
 	}
 	
 	/**
@@ -77,6 +78,7 @@ public class FraisHfAdapter extends BaseAdapter {
 			holder.txtListJour = (TextView)convertView.findViewById(R.id.txtListJour) ;
 			holder.txtListMontant = (TextView)convertView.findViewById(R.id.txtListMontant) ;
 			holder.txtListMotif = (TextView)convertView.findViewById(R.id.txtListMotif) ;
+			holder.cmdListSuppr = (Button)convertView.findViewById(R.id.cmdListSuppr) ;
 			convertView.setTag(holder) ;
 		}else{
 			holder = (ViewHolder)convertView.getTag();
@@ -84,6 +86,17 @@ public class FraisHfAdapter extends BaseAdapter {
 		holder.txtListJour.setText(lesFrais.get(index).getJour().toString()) ;
 		holder.txtListMontant.setText(lesFrais.get(index).getMontant().toString()) ;
 		holder.txtListMotif.setText(lesFrais.get(index).getMotif()) ;
+		holder.cmdListSuppr.setTag(index) ;
+		holder.cmdListSuppr.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				int position = (Integer)v.getTag() ;
+				Global.listFraisMois.get(key).getLesFraisHf().remove(position) ;
+    			Serializer.serialize(Global.filename, Global.listFraisMois, context) ;
+				notifyDataSetChanged() ;
+			}			
+		}) ;
+
 		return convertView ;
 	}
 	

@@ -52,5 +52,14 @@
         android:paddingLeft="4dp"
         android:paddingRight="2dp"
         android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/cmdListSuppr"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/suppr"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp" />
 
 </LinearLayout>
