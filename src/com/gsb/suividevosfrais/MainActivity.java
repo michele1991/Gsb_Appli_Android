@@ -1,20 +1,10 @@
 package com.gsb.suividevosfrais;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Hashtable;
 
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONObject;
-
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +18,9 @@ public class MainActivity extends Activity {
         // récupération des informations sérialisées
         recupSerialize() ;
         // chargement des méthodes événementielles
+        cmdMenu_clic(((Button)findViewById(R.id.cmdRepas)), RepasActivity.class) ;
+        cmdMenu_clic(((Button)findViewById(R.id.cmdNuitee)), NuiteeActivity.class) ;
+        cmdMenu_clic(((Button)findViewById(R.id.cmdEtape)), EtapeActivity.class) ;
         cmdMenu_clic(((Button)findViewById(R.id.cmdKm)), KmActivity.class) ;
         cmdMenu_clic(((Button)findViewById(R.id.cmdHf)), HfActivity.class) ;
         cmdMenu_clic(((Button)findViewById(R.id.cmdHfRecap)), HfRecapActivity.class) ;
